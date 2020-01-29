@@ -11,9 +11,7 @@ class GildedRose {
         for (Item item : items) {
             item.updateItemQuality();
 
-            if (!item.isSulfuras()) {
-                item.sellIn = item.sellIn - 1;
-            }
+            item.updateSellIn();
 
             if (item.sellIn < 0) {
                 if (!item.isAged()) {

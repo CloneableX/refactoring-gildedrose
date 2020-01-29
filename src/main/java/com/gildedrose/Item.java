@@ -40,4 +40,8 @@ public class Item {
         }
         quality = quality - 1;
     }
+
+    protected void updateSellIn() {
+        sellIn = sellIn - 1;
+    }
 }
