@@ -1,5 +1,9 @@
 package com.gildedrose;
 
+import com.gildedrose.items.Aged;
+import com.gildedrose.items.Backstage;
+import com.gildedrose.items.Sulfuras;
+
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
@@ -15,14 +19,14 @@ public class TexttestFixture {
 
         Item[] items = new Item[]{
                 new Item("+5 Dexterity Vest", 10, 20), //
-                new Item(Item.AGED, 2, 0), //
+                new Aged(2, 0), //
                 new Item("Elixir of the Mongoose", 5, 7), //
-                new Item(Item.SULFURAS, 0, 80), //
-                new Item(Item.SULFURAS, -1, 80),
-                new Item(Item.BACKSTAGE, 15, 20),
-                new Item(Item.BACKSTAGE, 10, 49),
-                new Item(Item.BACKSTAGE, 5, 49),
-                new Item(Item.BACKSTAGE, 1, 20),
+                new Sulfuras(0, 80), //
+                new Sulfuras(-1, 80),
+                new Backstage(15, 20),
+                new Backstage(10, 49),
+                new Backstage(5, 49),
+                new Backstage(1, 20),
                 // this conjured item does not work properly yet
                 new Item("Conjured Mana Cake", 3, 6)};
 

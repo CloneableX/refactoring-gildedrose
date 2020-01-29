@@ -34,31 +34,8 @@ public class Item {
         return name.equals(AGED);
     }
 
-    void updateItemQuality() {
-        if (isAged() || isBackstage()) {
-            if (quality < 50) {
-                quality = quality + 1;
-
-                if (isBackstage()) {
-                    if (sellIn < 11) {
-                        if (quality < 50) {
-                            quality = quality + 1;
-                        }
-                    }
-
-                    if (sellIn < 6) {
-                        if (quality < 50) {
-                            quality = quality + 1;
-                        }
-                    }
-                }
-            }
-            return;
-        }
+    protected void updateItemQuality() {
         if (quality <= 0) {
-            return;
-        }
-        if (isSulfuras()) {
             return;
         }
         quality = quality - 1;
