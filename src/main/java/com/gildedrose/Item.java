@@ -2,9 +2,6 @@ package com.gildedrose;
 
 public class Item {
 
-    public static final String AGED = "Aged Brie";
-    public static final String BACKSTAGE = "Backstage passes to a TAFKAL80ETC concert";
-    public static final String SULFURAS = "Sulfuras, Hand of Ragnaros";
     public String name;
 
     public int sellIn;
@@ -22,23 +19,8 @@ public class Item {
         return this.name + ", " + this.sellIn + ", " + this.quality;
     }
 
-    boolean isSulfuras() {
-        return name.equals(SULFURAS);
-    }
-
-    boolean isBackstage() {
-        return name.equals(BACKSTAGE);
-    }
-
-    boolean isAged() {
-        return name.equals(AGED);
-    }
-
     protected void updateItemQuality() {
-        if (quality <= 0) {
-            return;
-        }
-        quality = quality - 1;
+        decreaseQuality();
     }
 
     protected void updateSellIn() {
@@ -46,9 +28,30 @@ public class Item {
     }
 
     protected void updateQualityAfterSellIn() {
+        decreaseQuality();
+    }
+
+    private void decreaseQuality() {
         if (quality <= 0) {
             return;
         }
         quality = quality - 1;
+    }
+
+    void updateQuality() {
+        updateItemQuality();
+
+        updateSellIn();
+
+        if (sellIn < 0) {
+            updateQualityAfterSellIn();
+        }
+    }
+
+    protected void increaseQuality() {
+        if (quality >= 50) {
+            return;
+        }
+        quality = quality + 1;
     }
 }
