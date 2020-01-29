@@ -44,4 +44,11 @@ public class Item {
     protected void updateSellIn() {
         sellIn = sellIn - 1;
     }
+
+    protected void updateQualityAfterSellIn() {
+        if (quality <= 0) {
+            return;
+        }
+        quality = quality - 1;
+    }
 }

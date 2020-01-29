@@ -26,4 +26,9 @@ public class Backstage extends Item {
             }
         }
     }
+
+    @Override
+    protected void updateQualityAfterSellIn() {
+        quality = 0;
+    }
 }

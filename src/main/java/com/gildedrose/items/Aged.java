@@ -13,5 +13,12 @@ public class Aged extends Item {
             quality = quality + 1;
         }
     }
+
+    @Override
+    protected void updateQualityAfterSellIn() {
+        if (quality < 50) {
+            quality = quality + 1;
+        }
+    }
 }
 
